@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.wordWrap": "on",
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "tailwindCSS.experimental.configFile": "./app/app.css",
+  "typescript.enablePromptUseWorkspaceTsdk": true
+}
