@@ -1,7 +1,5 @@
 import './app.css'
-import Footer from '~/components/footer'
 import { GeistSans } from 'geist/font/sans'
-import Header from '~/components/header'
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 
@@ -13,9 +11,7 @@ function Layout({
   return (
     <html className={`${GeistSans.variable} scroll-smooth font-sans text-[white] antialiased`} lang="en">
       <body className="bg-[black] [background-image:linear-gradient(to_right,darkslategray_1px,transparent_1px),linear-gradient(to_bottom,darkslategray_1px,transparent_1px)] bg-[size:32px_32px] bg-center lg:bg-[size:48px_48px] lg:bg-fixed">
-        <Header />
         {children}
-        <Footer />
       </body>
     </html>
   )

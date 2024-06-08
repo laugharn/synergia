@@ -1,10 +1,12 @@
 import Link from 'next/link'
 
-function Hero() {
+function Hero({ isTaglineExperiment = false }: { isTaglineExperiment?: boolean }) {
   return (
     <div className="w-full py-6 px-3 text-center lg:py-9 lg:px-6">
       <h1 className="pb-3 text-4xl font-medium uppercase lg:pb-6 lg:text-7xl">
-        Connecting Innovation, Empowering Transformation
+        {isTaglineExperiment
+          ? 'Disrupt Conventional Computing Paradigms'
+          : 'Connecting Innovation, Empowering Transformation'}
       </h1>
       <p className="pb-3 text-lg lg:pb-6 lg:text-2xl">
         By leveraging big data and machine learning, we aim to create a paradigm shift in operational efficiencies and
