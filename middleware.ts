@@ -21,7 +21,7 @@ export async function middleware(req: NextRequest) {
   const overrides = overridesCookie ? await decrypt<FlagOverridesType>(overridesCookie) : {}
 
   const flags = isBot
-    ? experiments.map(() => true)
+    ? experiments.map(() => false)
     : await Promise.all(
         experiments
           .map((experiment) => {

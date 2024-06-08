@@ -1,12 +1,15 @@
 'use server'
 
+import { track } from '@vercel/analytics/server'
 import { unstable_after } from 'next/server'
 
 export async function action(formData: FormData) {
   unstable_after(async () => {
     await sleep(2000)
 
-    console.log('This will log in the server console two seconds after we get the success message on the front end.')
+    track('Email Conversion', {
+      email: formData.get('email') as string,
+    })
   })
 
   return true
