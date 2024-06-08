@@ -1,9 +1,7 @@
+import Main from '~/components/main'
+
 function Page() {
-  return (
-    <main>
-      <h1>Connecting Innovation, Empowering Transformation</h1>
-    </main>
-  )
+  return <Main />
 }
 
 export default Page
