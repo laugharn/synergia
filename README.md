@@ -60,3 +60,13 @@ I also added a basic icon and open graph image, leveraging App Router's intellig
 **Vercel in Use:** Flags, Analytics, Toolbar
 
 **Next.js in Use:** Flags, Middleware, image files
+
+## What's Next
+
+If this project were to be real and or get bigger, here would be some of the next steps to take in development (assuming we had time to not work on the Holistic Disruption Paradigm Mesh™):
+
+* More content, which means probably some kind of CMS and fetch/revalidation patterns
+* More robust forms, actually wired to store somewhere
+* A11y updates
+* Automated E2E tests with Playwright
+* More markup: JSON schema, feeds, dynamic Open Graph
