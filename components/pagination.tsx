@@ -72,7 +72,7 @@ function Button({ id, index, items = [] }: { id: string; index: number; items: a
       }}
     >
       <span
-        className="data-[is-visible=true]:bg-brand data-[is-visible=true]:outline-brand m-auto h-3 w-3 rounded-full bg-[white] outline transition-all duration-75 group-hover:opacity-50 data-[is-visible=false]:outline-transparent lg:h-4 lg:w-4 lg:outline-2"
+        className="data-[is-visible=true]:bg-brand data-[is-visible=true]:outline-brand m-auto h-3 w-3 rounded-full bg-[white] outline transition-all duration-300 group-hover:opacity-50 data-[is-visible=false]:outline-transparent lg:h-4 lg:w-4 lg:outline-2"
         data-is-visible={isVisible}
       />
       <span className="sr-only">go to item {index + 1}</span>
