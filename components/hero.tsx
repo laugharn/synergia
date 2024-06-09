@@ -1,5 +1,8 @@
 import Link from 'next/link'
 
+/**
+ * A no-frills hero component. The only prop is a boolean of the user's tagline experiment enrollment status, which updates the h1 copy.
+ */
 function Hero({ isTaglineExperiment = false }: { isTaglineExperiment?: boolean }) {
   return (
     <div className="w-full py-6 px-3 text-center lg:py-9 lg:px-6">

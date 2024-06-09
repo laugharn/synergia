@@ -4,6 +4,9 @@ import { action } from '~/lib/server'
 import Submit from './submit'
 import { useState } from 'react'
 
+/**
+ * A very, very rudimentary contact form that uses Server Actions.
+ */
 function Form() {
   const [status, setStatus] = useState<'ACCEPTED' | 'REJECTED'>()
 
@@ -23,8 +26,12 @@ function Form() {
       {status !== 'ACCEPTED' && (
         <form
           action={async (formData) => {
+            // Fire the form action. The action uses Next 15's `after()` functionality which means
+            // we should expect an immediate return.
             await action(formData)
 
+            // Toggle the status to accepted. In theory this might be more complex, but we are
+            // keeping it light for the demo.
             setStatus('ACCEPTED')
           }}
           className="group/form mx-auto flex w-full max-w-3xl overflow-hidden rounded-lg bg-[black] text-lg leading-10 outline outline-[white] lg:text-2xl lg:leading-[48px]"

@@ -15,6 +15,9 @@ const values: {
   },
 ]
 
+/**
+ * A component for showing value props in a paginated slider.
+ */
 function Values() {
   return (
     <div className="grid w-full grid-cols-1 gap-y-3 py-6 px-3 lg:gap-y-6 lg:py-9 lg:px-6">

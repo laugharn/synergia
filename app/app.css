@@ -1,11 +1,12 @@
 @import 'tailwindcss';
 
+/* Modifications to the Tailwind 4 configuration */
 @theme {
   --color-brand: aquamarine;
-
   --font-sans: var(--font-geist-sans);
 }
 
+/* A cross-browser compatible way to hide a scrollbar */
 .scrollbar-none {
   @apply [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
 }

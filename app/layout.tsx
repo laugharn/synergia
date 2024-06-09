@@ -6,6 +6,9 @@ import { FlagValues } from '@vercel/flags/react'
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
 
+/**
+ * A component for hooking into the flags feature of the Vercel toolbar.
+ */
 function RenderFlags() {
   const values = {} as { [key: string]: string }
 

@@ -16,6 +16,9 @@ function Main({
   return (
     <main
       className="mx-auto grid w-full max-w-7xl grid-cols-1"
+      // If the user is enrolled in the brand experiment, leverage Tailwind 4's
+      // approach to CSS variables and update the color from green to pink.
+      // Casting it because TypeScript hates CSS variables.
       style={
         {
           '--color-brand': isBrandExperiment ? 'lightpink' : 'aquamarine',

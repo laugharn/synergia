@@ -33,6 +33,9 @@ const testimonials: {
   },
 ]
 
+/**
+ * A component for showing testimonials side by side on desktop, and as a paginated slider on mobile.
+ */
 function Testimonials() {
   return (
     <div className="grid w-full grid-cols-1 gap-y-3 py-6 px-3 lg:gap-y-6 lg:py-9 lg:px-6">

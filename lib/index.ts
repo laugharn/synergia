@@ -1,3 +1,6 @@
+/**
+ * A very, very rudimentary experiments config. In a production site this would be much more complex, or served via a third party like LaunchDarkly.
+ */
 export const experiments = [
   {
     id: 0,

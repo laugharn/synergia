@@ -2,7 +2,11 @@
 
 import { useEffect, useState } from 'react'
 
-function useCarousel({ id, items = [] }: { id?: string; items?: any[] }) {
+/**
+ * A hook for returning structured data and a scroll function for pagination.
+ * @returns
+ */
+function usePagination({ id, items = [] }: { id?: string; items?: any[] }) {
   const buttonIds: string[] = items?.map((_, index) => `${id}-button-${index}`) ?? []
   const itemIds: string[] = items?.map((_, index) => `${id}-item-${index}`) ?? []
   const outerId = `${id}-outer`
@@ -29,6 +33,10 @@ function useCarousel({ id, items = [] }: { id?: string; items?: any[] }) {
   }
 }
 
+/**
+ * A hook for detecting if a given id is on screen.
+ * @param id
+ */
 export function useOnScreen(id: string) {
   const [isIntersecting, setIntersecting] = useState(false)
 
@@ -52,7 +60,7 @@ export function useOnScreen(id: string) {
 }
 
 function Button({ id, index, items = [] }: { id: string; index: number; items: any[] }) {
-  const { buttonIds, goTo, itemIds } = useCarousel({ id, items })
+  const { buttonIds, goTo, itemIds } = usePagination({ id, items })
   const isVisible = useOnScreen(itemIds[index])
 
   return (
@@ -72,8 +80,11 @@ function Button({ id, index, items = [] }: { id: string; index: number; items: a
   )
 }
 
+/**
+ * Buttons for paginating through a list of items.
+ */
 function Pagination({ id, items }: { id: string; items: any[] }) {
-  const { buttonIds, goTo } = useCarousel({ id, items })
+  const { buttonIds } = usePagination({ id, items })
 
   return (
     <div className="flex w-full items-center justify-center gap-x-1 lg:gap-x-2">
