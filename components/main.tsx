@@ -8,9 +8,11 @@ import Values from '~/components/values'
 
 function Main({
   isBrandExperiment = false,
+  isButtonExperiment = false,
   isTaglineExperiment = false,
 }: {
   isBrandExperiment?: boolean
+  isButtonExperiment?: boolean
   isTaglineExperiment?: boolean
 }) {
   return (
@@ -26,7 +28,7 @@ function Main({
       }
     >
       <Header />
-      <Hero isTaglineExperiment={isTaglineExperiment} />
+      <Hero isButtonExperiment={isButtonExperiment} isTaglineExperiment={isTaglineExperiment} />
       <Values />
       <Testimonials />
       <Form />
