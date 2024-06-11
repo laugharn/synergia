@@ -23,13 +23,13 @@ I had most of the raw materials, I just needed to build the actual website.
 
 ### II. Setup
 
-Now that I had the idea, I needed to setup my dev environment. I decided to use the 15 RC of Create Next App so I could take advantage of the --empty flag, which is great because I have spent a lot of time clearing out CNA defaults when spinning up a quick prototype. I then went ahead and did a lot of my customization/OCD that I have baked into my personal CNA template, like alphabetizing stuff, Prettier, etc. I also set up Next's --experimental-https flag, because development is easier when you can take the consistent protocol for granted.
+Now that I had the idea, I needed to setup my dev environment. I decided to use the 15 RC of Create Next App so I could take advantage of the --empty flag, which is great because I have spent a lot of time clearing out CNA defaults when spinning up a quick prototype. I then went ahead and did a lot of my customization that I have baked into my personal CNA template, like alphabetizing stuff, Prettier, etc. I also set up Next's --experimental-https flag, because development is easier when you can take the consistent protocol for granted.
 
 With that in place, I went ahead and added some dependencies and tweaked some others:
 
-* Turbo, because we are obsessed with shipping.
-* Switched Tailwind 3 for Tailwind 4, which has some quirks and things that I miss about 3 (a better handling of hover styling, for one) but I like the variable-driven approach.
-* Added React Compiler because why not.
+- Turbo, because we are obsessed with shipping.
+- Switched Tailwind 3 for Tailwind 4, which has some quirks and things that I miss about 3 (a better handling of hover styling, for one) but I like the variable-driven approach.
+- Added React Compiler because why not.
 
 At this point, we're setup and ready to build.
 
@@ -65,8 +65,8 @@ I also added a basic icon and open graph image, leveraging App Router's intellig
 
 If this project were to be real and or get bigger, here would be some of the next steps to take in development (assuming we had time to not work on the Holistic Disruption Paradigm Mesh™):
 
-* More content, which means probably some kind of CMS and fetch/revalidation patterns
-* More robust forms, actually wired to store somewhere
-* A11y updates
-* Automated E2E tests with Playwright
-* More markup: JSON schema, feeds, dynamic Open Graph
+- More content, which means probably some kind of CMS and fetch/revalidation patterns
+- More robust forms, actually wired to store somewhere
+- A11y updates
+- Automated E2E tests with Playwright
+- More markup: JSON schema, feeds, dynamic Open Graph

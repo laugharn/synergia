@@ -16,10 +16,14 @@ export const config = {
 }
 
 export async function middleware(req: NextRequest) {
+  // Check if the visitor is a bot. We should always serve a bot the control and bail.
   const { isBot } = userAgent(req)
+
+  // If overrides from Vercel Flags exist, use those to serve up the appropriate experiment values.
   const overridesCookie = req.cookies.get('vercel-flag-overrides')?.value
   const overrides = overridesCookie ? await decrypt<FlagOverridesType>(overridesCookie) : {}
 
+  // Map all of the experiments with flag enrollments. This both sets up the rewrite and enriches our Vercel Analytics.
   const flags = isBot
     ? experiments.map(() => false)
     : await Promise.all(
@@ -30,17 +34,18 @@ export async function middleware(req: NextRequest) {
                 const cookie = req.cookies.get(`exp${experiment.id}`)?.value
                 const override = overrides![`exp${experiment.id}`]
 
+                // If an override exists, return it.
                 if (override) {
                   return override
                 }
 
+                // If a cookie exists, return it.
                 if (cookie) {
                   return cookie
                 }
 
-                const bool = String(random(0, 1))
-
-                return bool
+                // Otherwise, enroll the user in the experiment.
+                return String(random(0, 1))
               },
               key: `exp${experiment.id}`,
             })
@@ -48,8 +53,10 @@ export async function middleware(req: NextRequest) {
           .map((func) => func()),
       )
 
+  // Rewrite to a URL with the experiments as params, so they are available during rendering.
   const res = NextResponse.rewrite(`${req.nextUrl.origin}/${flags.toString()}/`)
 
+  // Cookie each experiment enrollment result.
   experiments.forEach((experiment, index) => {
     res.cookies.set(`exp${experiment.id}`, String(flags[index]), {
       domain: req.nextUrl.hostname,
@@ -57,5 +64,6 @@ export async function middleware(req: NextRequest) {
     })
   })
 
+  // Return the rewritten response.
   return res
 }
