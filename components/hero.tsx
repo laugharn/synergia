@@ -3,7 +3,13 @@ import Link from 'next/link'
 /**
  * A no-frills hero component. The only prop is a boolean of the user's tagline experiment enrollment status, which updates the h1 copy.
  */
-function Hero({ isTaglineExperiment = false }: { isTaglineExperiment?: boolean }) {
+function Hero({
+  isButtonExperiment = false,
+  isTaglineExperiment = false,
+}: {
+  isButtonExperiment?: boolean
+  isTaglineExperiment?: boolean
+}) {
   return (
     <div className="w-full py-6 px-3 text-center lg:py-9 lg:px-6">
       <h1 className="pb-3 text-4xl font-medium uppercase lg:pb-6 lg:text-7xl">
@@ -20,7 +26,7 @@ function Hero({ isTaglineExperiment = false }: { isTaglineExperiment?: boolean }
           className="bg-brand h-10 rounded-lg px-3 uppercase text-[black] transition-colors duration-300 hover:bg-[color-mix(in_srgb,_var(--color-brand,_aquamarine)_50%,_white)] lg:h-12 lg:px-6"
           href="#contact"
         >
-          Contact Sales
+          {isButtonExperiment ? 'Start Your Demo' : 'Contact Sales'}
         </Link>
       </div>
     </div>
